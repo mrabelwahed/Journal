@@ -39,13 +39,15 @@ fun OnBoardingItem(modifier: Modifier, page: Page) {
         Text(
             text = page.title,
             modifier = modifier.padding(horizontal = mediumSpacing),
-            style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold)
+            style = MaterialTheme.typography.titleLarge.copy(fontWeight = FontWeight.Bold),
+            color = MaterialTheme.colorScheme.onBackground
         )
         Spacer(modifier = modifier.height(smallSpacing))
         Text(
             text = page.description,
             modifier = modifier.padding(horizontal = mediumSpacing),
-            style = MaterialTheme.typography.bodySmall
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onBackground
         )
 
 
