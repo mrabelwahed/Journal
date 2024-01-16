@@ -46,7 +46,7 @@ fun NewsDetailsScreen(
                         .height(220.dp)
                         .clip(MaterialTheme.shapes.medium),
                     contentDescription = null,
-                    placeholder = painterResource(id = R.drawable.onboarding1),
+                    placeholder = painterResource(id = R.drawable.onboarding3x),
                     contentScale = ContentScale.Crop
                 )
 
