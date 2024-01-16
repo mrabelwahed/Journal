@@ -7,7 +7,7 @@ plugins {
 }
 
 android {
-    namespace 'com.loc.newsapp'
+    namespace 'com.droidcourses.newsapp'
     compileSdk 33
 
     defaultConfig {
