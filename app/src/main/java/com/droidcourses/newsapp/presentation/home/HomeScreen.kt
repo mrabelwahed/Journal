@@ -18,7 +18,11 @@ import com.droidcourses.newsapp.presentation.components.SearchBar
 
 
 @Composable
-fun HomeScreen(articles: LazyPagingItems<Article>, navigateToSearch:() -> Unit) {
+fun HomeScreen(
+    articles: LazyPagingItems<Article>,
+    navigateToSearch: (() -> Unit)? = null,
+    onArticleClicked:(Article) -> Unit
+) {
     var text by remember { mutableStateOf("") }
 
     Column(modifier = Modifier.fillMaxSize()) {
@@ -33,10 +37,12 @@ fun HomeScreen(articles: LazyPagingItems<Article>, navigateToSearch:() -> Unit) 
                 text = it
             },
             onClick = {
-              navigateToSearch.invoke()
+              navigateToSearch?.invoke()
             }
         )
-        ArticleList(articles = articles) {}
+        ArticleList(articles = articles) {
+           article ->  onArticleClicked.invoke(article)
+        }
     }
 
 }

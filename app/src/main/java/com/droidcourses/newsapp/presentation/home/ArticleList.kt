@@ -17,11 +17,17 @@ import com.droidcourses.newsapp.presentation.components.ArticleCard
 import com.droidcourses.newsapp.presentation.components.ArticleCardShimmerEffect
 
 @Composable
-fun ArticleList(modifier: Modifier = Modifier, articles: LazyPagingItems<Article>,  onClick:(Article) -> Unit) {
+fun ArticleList(
+    modifier: Modifier = Modifier,
+    articles: LazyPagingItems<Article>,
+    onClick: ((Article) -> Unit)? = null )
+{
     val handlePagingResult = handlePagingResult(articles)
     if (handlePagingResult) {
         LazyColumn(
-            modifier = modifier.fillMaxSize().padding(mediumSpacing),
+            modifier = modifier
+                .fillMaxSize()
+                .padding(mediumSpacing),
             verticalArrangement = Arrangement.spacedBy(mediumSpacing),
             contentPadding = PaddingValues(all = smallSpacing)
         ) {
@@ -29,12 +35,17 @@ fun ArticleList(modifier: Modifier = Modifier, articles: LazyPagingItems<Article
                 count = articles.itemCount,
             ) {
                 articles[it]?.let { article ->
-                    ArticleCard(modifier = modifier,article = article, onClick = {onClick(article)})
+                    ArticleCard(
+                        modifier = modifier,
+                        article = article,
+                        onClick = { onClick?.invoke(article) }
+                    )
                 }
             }
         }
     }
 }
+
 @Composable
 fun handlePagingResult(articles: LazyPagingItems<Article>): Boolean {
     val loadState = articles.loadState
@@ -61,10 +72,11 @@ fun handlePagingResult(articles: LazyPagingItems<Article>): Boolean {
         }
     }
 }
+
 @Composable
 fun ShimmerEffect() {
-    Column(verticalArrangement = Arrangement.spacedBy(mediumSpacing)){
-        repeat(10){
+    Column(verticalArrangement = Arrangement.spacedBy(mediumSpacing)) {
+        repeat(10) {
             ArticleCardShimmerEffect(
                 modifier = Modifier.padding(horizontal = mediumSpacing)
             )

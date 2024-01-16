@@ -32,7 +32,7 @@ import kotlinx.coroutines.launch
 @Composable
 fun OnBoardingScreen(onBoardingEvent: (OnBoardingEvent) -> Unit) {
     val pagerState = rememberPagerState(initialPage = 0, pageCount = { pages.size })
-    Column {
+    Column (horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.SpaceAround){
         HorizontalPager(state = pagerState) { page ->
             OnBoardingItem(
                 modifier = Modifier,
@@ -48,29 +48,33 @@ fun OnBoardingScreen(onBoardingEvent: (OnBoardingEvent) -> Unit) {
                 .fillMaxWidth()
                 .navigationBarsPadding()
         ) {
-            Row {
+            Row(verticalAlignment = Alignment.CenterVertically) {
                PageIndicator(pages = pages.size, selectedPage = pagerState.currentPage, modifier = Modifier.width(52.dp) )
             }
-            Row {
-                val scope = rememberCoroutineScope()
-                if (pagerState.currentPage > 0) {
-                    SecondaryButton(text = stringResource(id = R.string.back)) {
-                        scope.launch {
-                            pagerState.animateScrollToPage(page = pagerState.currentPage - 1)
-                        }
+        }
+        Row(
+            modifier = Modifier.fillMaxWidth()
+                .padding(horizontal = mediumSpacing)
+            ,horizontalArrangement = Arrangement.End
+        ) {
+            val scope = rememberCoroutineScope()
+            if (pagerState.currentPage > 0) {
+                SecondaryButton(text = stringResource(id = R.string.back)) {
+                    scope.launch {
+                        pagerState.animateScrollToPage(page = pagerState.currentPage - 1)
                     }
                 }
-                val ctaString = if (pagerState.currentPage == 2)
-                    stringResource(id = R.string.get_started)
-                else
-                    stringResource(id = R.string.next)
-                PrimaryButton(text = ctaString) {
-                    scope.launch {
-                        if (pagerState.currentPage == 2)
-                            onBoardingEvent(OnBoardingEvent.OnBoardingVisited)
-                        else
-                            pagerState.animateScrollToPage(page = pagerState.currentPage + 1)
-                    }
+            }
+            val ctaString = if (pagerState.currentPage == 2)
+                stringResource(id = R.string.get_started)
+            else
+                stringResource(id = R.string.next)
+            PrimaryButton(text = ctaString) {
+                scope.launch {
+                    if (pagerState.currentPage == 2)
+                        onBoardingEvent(OnBoardingEvent.OnBoardingVisited)
+                    else
+                        pagerState.animateScrollToPage(page = pagerState.currentPage + 1)
                 }
             }
         }

@@ -19,7 +19,6 @@ class DetailsViewModel @Inject constructor (application: Application) :
             is DetailsScreenEvent.ShareClicked -> onShareClicked(event.url)
             is DetailsScreenEvent.BrowseClicked -> onBrowserClicked(event.url)
             is DetailsScreenEvent.BookmarkClicked -> onBookmarkClicked()
-            is DetailsScreenEvent.NavigateUp -> onNavigateUp()
         }
     }
 
@@ -47,11 +46,9 @@ class DetailsViewModel @Inject constructor (application: Application) :
 
     private fun onBookmarkClicked() {}
 
-    private fun onNavigateUp() {}
 }
 
 sealed class DetailsScreenEvent() {
-    object NavigateUp : DetailsScreenEvent()
     data class ShareClicked(val url: String) : DetailsScreenEvent()
     object BookmarkClicked : DetailsScreenEvent()
     data class BrowseClicked(val url: String) : DetailsScreenEvent()

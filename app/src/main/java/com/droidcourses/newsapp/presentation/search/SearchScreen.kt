@@ -34,8 +34,7 @@ fun SearchScreen(state: SearchState, event:(SearchScreenEvent) -> Unit) {
         )
         state.articles?.let {
             val articles = it.collectAsLazyPagingItems()
-            ArticleList(articles = articles){
-            }
+            ArticleList(articles = articles)
         }
     }
 
