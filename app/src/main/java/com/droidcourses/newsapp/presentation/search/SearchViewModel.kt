@@ -7,13 +7,13 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.droidcourses.newsapp.domain.models.Article
-import com.droidcourses.newsapp.domain.usecase.GetNewsUseCase
+import com.droidcourses.newsapp.domain.usecase.NewsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 @HiltViewModel
-class SearchViewModel @Inject constructor(private val newsUseCase: GetNewsUseCase): ViewModel() {
+class SearchViewModel @Inject constructor(private val newsUseCase: NewsUseCase): ViewModel() {
 
     private var _state = mutableStateOf(SearchState())
     val state: State<SearchState> = _state

@@ -4,12 +4,12 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.cachedIn
-import com.droidcourses.newsapp.domain.usecase.GetNewsUseCase
+import com.droidcourses.newsapp.domain.usecase.NewsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(private val newsUseCase: GetNewsUseCase): ViewModel() {
+class HomeViewModel @Inject constructor(private val newsUseCase: NewsUseCase): ViewModel() {
 
     var  state = mutableStateOf(HomeState())
         private set

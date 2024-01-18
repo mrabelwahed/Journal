@@ -9,6 +9,7 @@ import androidx.navigation.navigation
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.droidcourses.newsapp.domain.models.Article
 import com.droidcourses.newsapp.presentation.bookmark.BookmarkScreen
+import com.droidcourses.newsapp.presentation.bookmark.BookmarkViewModel
 import com.droidcourses.newsapp.presentation.details.DetailsViewModel
 import com.droidcourses.newsapp.presentation.details.NewsDetailsScreen
 import com.droidcourses.newsapp.presentation.home.HomeScreen
@@ -50,7 +51,10 @@ fun NavGraph(startDestination: String, navController: NavHostController) {
 
             composable(Screen.Search.route) {
                 val viewModel: SearchViewModel = hiltViewModel()
-                SearchScreen(viewModel.state.value,viewModel::onEvent )
+                SearchScreen(viewModel.state.value,viewModel::onEvent){
+                    navController.currentBackStackEntry?.savedStateHandle?.set(ARTICLE,it)
+                    navController.navigate(Screen.Details.route)
+                }
             }
 
             composable(Screen.Details.route) {
@@ -64,7 +68,8 @@ fun NavGraph(startDestination: String, navController: NavHostController) {
             }
 
             composable(Screen.Bookmark.route) {
-                BookmarkScreen()
+                val viewModel: BookmarkViewModel = hiltViewModel()
+                BookmarkScreen(viewModel.localNewsState.value.data, viewModel::onEvent)
             }
         }
     }

@@ -15,13 +15,15 @@ import com.droidcourses.newsapp.designsystem.smallSpacing
 import com.droidcourses.newsapp.domain.models.Article
 import com.droidcourses.newsapp.presentation.components.ArticleCard
 import com.droidcourses.newsapp.presentation.components.ArticleCardShimmerEffect
+import com.droidcourses.newsapp.presentation.components.EmptyScreen
 
 @Composable
 fun ArticleList(
     modifier: Modifier = Modifier,
     articles: LazyPagingItems<Article>,
-    onClick: ((Article) -> Unit)? = null )
+    onClick: ((Article) -> Unit)? = null)
 {
+
     val handlePagingResult = handlePagingResult(articles)
     if (handlePagingResult) {
         LazyColumn(
@@ -63,7 +65,7 @@ fun handlePagingResult(articles: LazyPagingItems<Article>): Boolean {
         }
 
         error != null -> {
-            //EmptyScreen(error = error)
+            EmptyScreen(error = error)
             false
         }
 

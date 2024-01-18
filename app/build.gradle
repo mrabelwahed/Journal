@@ -11,7 +11,7 @@ android {
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.loc.newsapp"
+        applicationId "com.droidcourses.newsapp"
         minSdk 24
         targetSdk 33
         versionCode 1
@@ -107,4 +107,5 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-ktx:2.5.2"
+
 }

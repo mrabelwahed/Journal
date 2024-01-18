@@ -36,7 +36,7 @@ fun NewsDetailsScreen(
             onNavigateUp = onNavigateUp,
             onBrowserClicked = { onEvent.invoke(DetailsScreenEvent.BrowseClicked(article.url)) },
             onShareClicked = { onEvent.invoke(DetailsScreenEvent.ShareClicked(article.url)) },
-            onBookmarkClicked = { onEvent.invoke(DetailsScreenEvent.BookmarkClicked) }) 
+            onBookmarkClicked = { onEvent.invoke(DetailsScreenEvent.BookmarkClicked(article)) })
         
 
 
@@ -50,11 +50,12 @@ fun NewsDetailsScreen(
                         .clip(MaterialTheme.shapes.medium),
                     contentDescription = null,
                     placeholder = painterResource(id = R.drawable.onboarding3x),
+                    error = painterResource(id = R.drawable.onboarding3x),
                     contentScale = ContentScale.Crop
                 )
 
                 Text(
-                    text = article.title,
+                    text = article.title ?: return@item,
                     style = MaterialTheme.typography.titleMedium,
                     modifier = Modifier.padding(top = mediumSpacing)
                 )
@@ -62,7 +63,7 @@ fun NewsDetailsScreen(
                 Spacer(modifier = Modifier.height(largeSpacing))
 
                 Text(
-                    text = article.content,
+                    text = article.content ?: return@item,
                     style = MaterialTheme.typography.bodySmall
                 )
             }
@@ -70,14 +71,4 @@ fun NewsDetailsScreen(
 
         }
     }
-
-
 }
-
-//@Preview(showBackground = true)
-//@Preview(showBackground = true, uiMode = UI_MODE_NIGHT_YES)
-//@Composable
-//fun preview() {
-//    val viewModel: DetailsViewModel = hiltViewModel()
-//    NewsDetailsScreen(article = , onEvent = viewModel::onEvent)
-//}
