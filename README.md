@@ -1,4 +1,4 @@
-# NewsApp
+# Journal
 An Android app built with Jetpack Compose and the latest android libraries.
 
 # Preview 
@@ -20,3 +20,7 @@ An Android app built with Jetpack Compose and the latest android libraries.
 - Jetpack components
 - Coil 
 - Support Dark Theme
+
+# Plan
+- Add Unit testing using Junit and Mockk
+- Add UI testing  using Espresso
