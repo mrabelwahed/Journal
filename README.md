@@ -2,6 +2,7 @@
 An Android app built with Jetpack Compose and the latest android libraries.
 
 # Preview 
+<p float="left">
 <img width="33%" alt="Screenshot 2023-08-23 at 4 11 00 PM" src="https://github.com/mrabelwahed/NewsApp/blob/master/screenshots/1.png">
 <img width="33%"  alt="Screenshot 2023-08-23 at 4 11 00 PM" src="https://github.com/mrabelwahed/NewsApp/blob/master/screenshots/2.png">
 <img width="33%"  alt="Screenshot 2023-08-23 at 4 11 00 PM" src="https://github.com/mrabelwahed/NewsApp/blob/master/screenshots/3.png">
@@ -13,6 +14,8 @@ An Android app built with Jetpack Compose and the latest android libraries.
 <img width="33%"  alt="Screenshot 2023-08-23 at 4 11 00 PM" src="https://github.com/mrabelwahed/NewsApp/blob/master/screenshots/9.png">
 <img width="33%"  alt="Screenshot 2023-08-23 at 4 11 00 PM" src="https://github.com/mrabelwahed/NewsApp/blob/master/screenshots/10.png">
 <img width="33%"  alt="Screenshot 2023-08-23 at 4 11 00 PM" src="https://github.com/mrabelwahed/NewsApp/blob/master/screenshots/11.png">
+</p>
+
 <br><br>
 
 # Used Libs:
