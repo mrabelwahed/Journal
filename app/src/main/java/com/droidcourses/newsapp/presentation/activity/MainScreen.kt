@@ -23,6 +23,7 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.droidcourses.newsapp.presentation.home.HOME_ROUTE
 import com.droidcourses.newsapp.presentation.navigation.NavGraph
 import com.droidcourses.newsapp.presentation.navigation.Screen
 
@@ -43,12 +44,12 @@ fun BottomNavigationView(navController: NavHostController) {
     }
     val navItems = listOf(NavItem.Home, NavItem.Search, NavItem.Bookmark)
     val backStackState = navController.currentBackStackEntryAsState()
-    val isBottomBarVisible = backStackState.value?.destination?.route == Screen.Home.route
+    val isBottomBarVisible = backStackState.value?.destination?.route == HOME_ROUTE
             || backStackState.value?.destination?.route == Screen.Search.route
             || backStackState.value?.destination?.route == Screen.Bookmark.route
 
     selectedItemIndex = when (backStackState.value?.destination?.route) {
-        Screen.Home.route -> 0
+        HOME_ROUTE -> 0
         Screen.Search.route -> 1
         Screen.Bookmark.route -> 2
         else -> 0
@@ -81,7 +82,7 @@ sealed class NavItem(
     val label: String,
     val route: String
 ) {
-    object Home : NavItem(Icons.Outlined.Home, Icons.Filled.Home, "Home", Screen.Home.route)
+    object Home : NavItem(Icons.Outlined.Home, Icons.Filled.Home, "Home", HOME_ROUTE)
     object Search :
         NavItem(Icons.Outlined.Search, Icons.Filled.Search, "Search", Screen.Search.route)
 

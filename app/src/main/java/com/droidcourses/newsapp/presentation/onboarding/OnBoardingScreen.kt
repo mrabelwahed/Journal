@@ -20,6 +20,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.droidcourses.newsapp.R
 import com.droidcourses.newsapp.designsystem.mediumSpacing
 import com.droidcourses.newsapp.presentation.components.OnBoardingItem
@@ -30,7 +31,7 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun OnBoardingScreen(onBoardingEvent: (OnBoardingEvent) -> Unit) {
+fun OnBoardingScreen(viewModel: OnBoardingViewModel = hiltViewModel()) {
     val pagerState = rememberPagerState(initialPage = 0, pageCount = { pages.size })
     Column (horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.SpaceAround){
         HorizontalPager(state = pagerState) { page ->
@@ -53,7 +54,8 @@ fun OnBoardingScreen(onBoardingEvent: (OnBoardingEvent) -> Unit) {
             }
         }
         Row(
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
                 .padding(horizontal = mediumSpacing)
             ,horizontalArrangement = Arrangement.End
         ) {
@@ -72,7 +74,7 @@ fun OnBoardingScreen(onBoardingEvent: (OnBoardingEvent) -> Unit) {
             PrimaryButton(text = ctaString) {
                 scope.launch {
                     if (pagerState.currentPage == 2)
-                        onBoardingEvent(OnBoardingEvent.OnBoardingVisited)
+                        viewModel.onEvent(OnBoardingEvent.OnBoardingVisited)
                     else
                         pagerState.animateScrollToPage(page = pagerState.currentPage + 1)
                 }

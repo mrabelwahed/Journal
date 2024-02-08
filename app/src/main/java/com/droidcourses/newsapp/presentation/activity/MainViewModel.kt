@@ -5,7 +5,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.droidcourses.newsapp.domain.usecase.OnBoardingUseCase
+import com.droidcourses.newsapp.presentation.home.HOME_ROUTE
 import com.droidcourses.newsapp.presentation.navigation.Screen
+import com.droidcourses.newsapp.presentation.onboarding.ONBOARDING_ROUTE
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.launchIn
@@ -14,7 +16,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(private val onBoardingUseCase: OnBoardingUseCase): ViewModel() {
-    private var _startDestination = mutableStateOf(Screen.AppStart.route)
+    private var _startDestination = mutableStateOf(ONBOARDING_ROUTE)
     val startDestination: State<String> = _startDestination
 
     private var _shouldKeepSplash = mutableStateOf(true)
@@ -24,9 +26,9 @@ class MainViewModel @Inject constructor(private val onBoardingUseCase: OnBoardin
            .isOnBoardingVisited()
            .onEach { shouldStartFromHome ->
                if (shouldStartFromHome)
-                   _startDestination.value = Screen.NewsNav.route
+                   _startDestination.value = HOME_ROUTE
                else
-                   _startDestination.value = Screen.AppStart.route
+                   _startDestination.value = ONBOARDING_ROUTE
                delay(200) // to simulate splash, for testing purpose
                _shouldKeepSplash.value = false
            }

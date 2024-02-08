@@ -14,8 +14,10 @@ import com.droidcourses.newsapp.presentation.details.DetailsViewModel
 import com.droidcourses.newsapp.presentation.details.NewsDetailsScreen
 import com.droidcourses.newsapp.presentation.home.HomeScreen
 import com.droidcourses.newsapp.presentation.home.HomeViewModel
+import com.droidcourses.newsapp.presentation.home.homeScreen
 import com.droidcourses.newsapp.presentation.onboarding.OnBoardingScreen
 import com.droidcourses.newsapp.presentation.onboarding.OnBoardingViewModel
+import com.droidcourses.newsapp.presentation.onboarding.onBoardingScreen
 import com.droidcourses.newsapp.presentation.search.SearchScreen
 import com.droidcourses.newsapp.presentation.search.SearchViewModel
 import com.droidcourses.newsapp.util.AppConst.ARTICLE
@@ -25,29 +27,16 @@ fun NavGraph(startDestination: String, navController: NavHostController) {
 
     NavHost(navController = navController, startDestination = startDestination) {
 
-        navigation(
-            route = Screen.AppStart.route,
-            startDestination = Screen.OnBoardingScreen.route
-        ){
-            composable(Screen.OnBoardingScreen.route) {
-                val viewModel: OnBoardingViewModel = hiltViewModel()
-                OnBoardingScreen(onBoardingEvent = viewModel::onEvent)
-            }
-        }
 
-        navigation(
-            route = Screen.NewsNav.route,
-            startDestination = Screen.Home.route
-        ){
+        onBoardingScreen()
 
-            composable(Screen.Home.route) {
-                val viewModel: HomeViewModel = hiltViewModel()
-                val articles = viewModel.news.collectAsLazyPagingItems()
-                HomeScreen(articles, navigateToSearch = {navController.navigate(Screen.Search.route)}) {
-                    navController.currentBackStackEntry?.savedStateHandle?.set(ARTICLE,it)
-                    navController.navigate(Screen.Details.route)
-                }
-            }
+        homeScreen(navigateToSearch = {
+            navController.navigate(Screen.Search.route)
+        }, onArticleClicked = {
+            navController.currentBackStackEntry?.savedStateHandle?.set(ARTICLE, it)
+            navController.navigate(Screen.Details.route)
+        })
+
 
             composable(Screen.Search.route) {
                 val viewModel: SearchViewModel = hiltViewModel()
@@ -73,4 +62,3 @@ fun NavGraph(startDestination: String, navController: NavHostController) {
             }
         }
     }
-}

@@ -35,6 +35,9 @@ fun ArticleList(
         ) {
             items(
                 count = articles.itemCount,
+                key =  {
+                    articles[it]?.url ?: ""
+                }
             ) {
                 articles[it]?.let { article ->
                     ArticleCard(
