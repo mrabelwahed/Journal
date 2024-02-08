@@ -2,6 +2,7 @@ package com.droidcourses.newsapp.data.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import com.droidcourses.newsapp.data.mappers.toArticle
 import com.droidcourses.newsapp.data.remote.api.NewsAPI
 import com.droidcourses.newsapp.domain.models.Article
 
@@ -27,7 +28,7 @@ class NewsPagingSource(private val query: List<String>, private val newsAPI: New
 
         return try {
             LoadResult.Page(
-                data = response.articles.distinctBy { it.title },
+                data = response.articles.distinctBy { it.title }.map { it.toArticle() },
                 prevKey = prevKey,
                 nextKey = nextKey
             )

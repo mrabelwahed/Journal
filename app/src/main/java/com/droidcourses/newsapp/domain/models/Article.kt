@@ -15,7 +15,6 @@ data class Article(
     val publishedAt: String?,
     val source: Source?,
     val title: String?,
-   @PrimaryKey val url: String,
+    @PrimaryKey val url: String,
     val urlToImage: String?
-): Parcelable
-//TODO: we should create Article DTO and mapper to map from response to domain object
+) : Parcelable
