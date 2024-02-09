@@ -1,5 +1,6 @@
 # Journal
-An Android app built with Jetpack Compose and the latest android libraries.
+An Android app built with Jetpack Compose and the latest android libraries. 
+The goal is to build a multi-module Android App with all good stuff nowadays
 
 # Preview 
 <p float="left">
@@ -31,6 +32,8 @@ An Android app built with Jetpack Compose and the latest android libraries.
 # Plan
 - Add Unit testing using Junit and Mockk
 - Add UI testing  using Espresso
+- Add Snap shot testing using Pappartzi
+- Add cool Animations
 
 # Support Me
 https://www.buymeacoffee.com/ramadan
