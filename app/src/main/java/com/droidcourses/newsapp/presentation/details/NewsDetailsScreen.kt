@@ -19,12 +19,13 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
+import com.droidcourses.designsystem.largeSpacing
+import com.droidcourses.designsystem.mediumSpacing
 import com.droidcourses.newsapp.R
-import com.droidcourses.newsapp.designsystem.largeSpacing
-import com.droidcourses.newsapp.designsystem.mediumSpacing
+import com.droidcourses.designsystem.R as designR
 import com.droidcourses.newsapp.domain.models.Article
-import com.droidcourses.newsapp.presentation.components.DetailsTopBar
 import com.droidcourses.newsapp.util.AppConst
+import com.droidcourses.uicomponents.DetailsTopBar
 
 @Composable
 fun NewsDetailsScreen(
@@ -54,8 +55,8 @@ fun NewsDetailsScreen(
                         .height(220.dp)
                         .clip(MaterialTheme.shapes.medium),
                     contentDescription = null,
-                    placeholder = painterResource(id = R.drawable.onboarding3x),
-                    error = painterResource(id = R.drawable.onboarding3x),
+                    placeholder = painterResource(id = designR.drawable.onboarding3x),
+                    error = painterResource(id = designR.drawable.onboarding3x),
                     contentScale = ContentScale.Crop
                 )
 

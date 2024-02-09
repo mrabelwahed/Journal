@@ -10,11 +10,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.compose.collectAsLazyPagingItems
-import com.droidcourses.newsapp.designsystem.mediumSpacing
+import com.droidcourses.designsystem.mediumSpacing
 import com.droidcourses.newsapp.domain.models.Article
-import com.droidcourses.newsapp.presentation.components.EmptyScreen
-import com.droidcourses.newsapp.presentation.components.SearchBar
+import com.droidcourses.newsapp.presentation.EmptyScreen
 import com.droidcourses.newsapp.presentation.home.ArticleList
+import com.droidcourses.uicomponents.SearchBar
 
 @Composable
 fun SearchScreen(

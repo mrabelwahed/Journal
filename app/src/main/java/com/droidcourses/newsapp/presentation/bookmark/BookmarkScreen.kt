@@ -16,12 +16,13 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.droidcourses.designsystem.mediumSpacing
+import com.droidcourses.designsystem.smallSpacing
 import com.droidcourses.newsapp.R
-import com.droidcourses.newsapp.designsystem.mediumSpacing
-import com.droidcourses.newsapp.designsystem.smallSpacing
 import com.droidcourses.newsapp.domain.models.Article
-import com.droidcourses.newsapp.presentation.components.ArticleCard
-import com.droidcourses.newsapp.presentation.components.EmptyScreen
+import com.droidcourses.newsapp.presentation.ArticleCard
+import com.droidcourses.newsapp.presentation.EmptyScreen
+
 
 @Composable
 fun BookmarkScreen(

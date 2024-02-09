@@ -11,13 +11,11 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
-import com.droidcourses.newsapp.designsystem.mediumSpacing
-import com.droidcourses.newsapp.designsystem.smallSpacing
+import com.droidcourses.designsystem.mediumSpacing
+import com.droidcourses.designsystem.smallSpacing
 import com.droidcourses.newsapp.domain.models.Article
-import com.droidcourses.newsapp.presentation.components.SearchBar
-import com.droidcourses.newsapp.presentation.onboarding.OnBoardingViewModel
+import com.droidcourses.uicomponents.SearchBar
 
 
 @Composable

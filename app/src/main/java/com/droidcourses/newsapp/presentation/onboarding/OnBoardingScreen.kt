@@ -21,12 +21,12 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.droidcourses.designsystem.mediumSpacing
 import com.droidcourses.newsapp.R
-import com.droidcourses.newsapp.designsystem.mediumSpacing
-import com.droidcourses.newsapp.presentation.components.OnBoardingItem
-import com.droidcourses.newsapp.presentation.components.PageIndicator
-import com.droidcourses.newsapp.presentation.components.PrimaryButton
-import com.droidcourses.newsapp.presentation.components.SecondaryButton
+import com.droidcourses.uicomponents.OnBoardingItem
+import com.droidcourses.uicomponents.PageIndicator
+import com.droidcourses.uicomponents.PrimaryButton
+import com.droidcourses.uicomponents.SecondaryButton
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -37,7 +37,9 @@ fun OnBoardingScreen(viewModel: OnBoardingViewModel = hiltViewModel()) {
         HorizontalPager(state = pagerState) { page ->
             OnBoardingItem(
                 modifier = Modifier,
-                page = pages[page]
+                title = pages[page].title,
+                description = pages[page].description,
+                imageRes = pages[page].image
             )
         }
         Spacer(modifier = Modifier.height(mediumSpacing))
@@ -91,5 +93,5 @@ fun OnBoardingScreen(viewModel: OnBoardingViewModel = hiltViewModel()) {
 )
 @Composable
 fun OnBoardingScreenPreview() {
-    OnBoardingItem(modifier = Modifier, page = pages[0])
+    OnBoardingItem(modifier = Modifier, title = "hello", description = "description", imageRes = R.drawable.ic_splash)
 }

@@ -10,12 +10,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
-import com.droidcourses.newsapp.designsystem.mediumSpacing
-import com.droidcourses.newsapp.designsystem.smallSpacing
+import com.droidcourses.designsystem.mediumSpacing
+import com.droidcourses.designsystem.smallSpacing
 import com.droidcourses.newsapp.domain.models.Article
-import com.droidcourses.newsapp.presentation.components.ArticleCard
-import com.droidcourses.newsapp.presentation.components.ArticleCardShimmerEffect
-import com.droidcourses.newsapp.presentation.components.EmptyScreen
+import com.droidcourses.newsapp.presentation.ArticleCard
+import com.droidcourses.newsapp.presentation.EmptyScreen
+import com.droidcourses.uicomponents.ArticleCardShimmerEffect
 
 @Composable
 fun ArticleList(

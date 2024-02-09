@@ -8,7 +8,7 @@ plugins {
 
 android {
     namespace 'com.droidcourses.newsapp'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.droidcourses.newsapp"
@@ -107,5 +107,8 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-ktx:2.5.2"
+
+    implementation(project(":uicomponents"))
+    implementation(project(":designsystem"))
 
 }
