@@ -16,34 +16,39 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import com.droidcourses.newsapp.R
 import com.droidcourses.newsapp.designsystem.largeSpacing
 import com.droidcourses.newsapp.designsystem.mediumSpacing
 import com.droidcourses.newsapp.domain.models.Article
 import com.droidcourses.newsapp.presentation.components.DetailsTopBar
+import com.droidcourses.newsapp.util.AppConst
 
 @Composable
 fun NewsDetailsScreen(
-    article: Article,
-    onEvent: (DetailsScreenEvent) -> Unit,
+    viewModel: DetailsViewModel = hiltViewModel(),
+    navController: NavController,
     onNavigateUp: () -> Unit
 ) {
+
+    val article  = navController.previousBackStackEntry?.savedStateHandle?.get<Article>(AppConst.ARTICLE)
 
     Column {
         DetailsTopBar(
             modifier = Modifier.fillMaxWidth(),
             onNavigateUp = onNavigateUp,
-            onBrowserClicked = { onEvent.invoke(DetailsScreenEvent.BrowseClicked(article.url)) },
-            onShareClicked = { onEvent.invoke(DetailsScreenEvent.ShareClicked(article.url)) },
-            onBookmarkClicked = { onEvent.invoke(DetailsScreenEvent.BookmarkClicked(article)) })
+            onBrowserClicked = { viewModel.onEvent(DetailsScreenEvent.BrowseClicked(article?.url ?: return@DetailsTopBar)) },
+            onShareClicked = {  viewModel.onEvent(DetailsScreenEvent.ShareClicked(article?.url ?: return@DetailsTopBar)) },
+            onBookmarkClicked = {  viewModel.onEvent(DetailsScreenEvent.BookmarkClicked(article ?: return@DetailsTopBar)) })
         
 
 
         LazyColumn(contentPadding = PaddingValues(mediumSpacing)) {
             item {
                 AsyncImage(
-                    model = article.urlToImage,
+                    model = article?.urlToImage,
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(220.dp)
@@ -55,7 +60,7 @@ fun NewsDetailsScreen(
                 )
 
                 Text(
-                    text = article.title ?: return@item,
+                    text = article?.title ?: return@item,
                     style = MaterialTheme.typography.titleMedium,
                     modifier = Modifier.padding(top = mediumSpacing)
                 )
@@ -67,8 +72,6 @@ fun NewsDetailsScreen(
                     style = MaterialTheme.typography.bodySmall
                 )
             }
-
-
         }
     }
 }

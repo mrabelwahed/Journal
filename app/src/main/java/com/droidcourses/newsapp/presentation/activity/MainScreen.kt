@@ -14,7 +14,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.getValue
@@ -23,9 +22,10 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
+import com.droidcourses.newsapp.presentation.bookmark.BOOKMARK_SCREEN
 import com.droidcourses.newsapp.presentation.home.HOME_ROUTE
 import com.droidcourses.newsapp.presentation.navigation.NavGraph
-import com.droidcourses.newsapp.presentation.navigation.Screen
+import com.droidcourses.newsapp.presentation.search.SEARCH_SCREEN
 
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -45,13 +45,13 @@ fun BottomNavigationView(navController: NavHostController) {
     val navItems = listOf(NavItem.Home, NavItem.Search, NavItem.Bookmark)
     val backStackState = navController.currentBackStackEntryAsState()
     val isBottomBarVisible = backStackState.value?.destination?.route == HOME_ROUTE
-            || backStackState.value?.destination?.route == Screen.Search.route
-            || backStackState.value?.destination?.route == Screen.Bookmark.route
+            || backStackState.value?.destination?.route == SEARCH_SCREEN
+            || backStackState.value?.destination?.route == BOOKMARK_SCREEN
 
     selectedItemIndex = when (backStackState.value?.destination?.route) {
         HOME_ROUTE -> 0
-        Screen.Search.route -> 1
-        Screen.Bookmark.route -> 2
+        SEARCH_SCREEN -> 1
+        BOOKMARK_SCREEN -> 2
         else -> 0
     }
     if (isBottomBarVisible) {
@@ -84,8 +84,8 @@ sealed class NavItem(
 ) {
     object Home : NavItem(Icons.Outlined.Home, Icons.Filled.Home, "Home", HOME_ROUTE)
     object Search :
-        NavItem(Icons.Outlined.Search, Icons.Filled.Search, "Search", Screen.Search.route)
+        NavItem(Icons.Outlined.Search, Icons.Filled.Search, "Search", SEARCH_SCREEN)
 
     object Bookmark :
-        NavItem(Icons.Outlined.Favorite, Icons.Filled.Favorite, "Bookmark", Screen.Bookmark.route)
+        NavItem(Icons.Outlined.Favorite, Icons.Filled.Favorite, "Bookmark", BOOKMARK_SCREEN)
 }

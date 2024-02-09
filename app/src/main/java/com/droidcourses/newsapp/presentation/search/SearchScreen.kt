@@ -1,5 +1,6 @@
 package com.droidcourses.newsapp.presentation.search
 
+import android.widget.SearchView
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -7,6 +8,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.droidcourses.newsapp.designsystem.mediumSpacing
 import com.droidcourses.newsapp.domain.models.Article
@@ -16,10 +18,12 @@ import com.droidcourses.newsapp.presentation.home.ArticleList
 
 @Composable
 fun SearchScreen(
-    state: SearchState,
-    event: (SearchScreenEvent) -> Unit,
+    viewModel: SearchViewModel = hiltViewModel(),
     onArticleClicked: (Article) -> Unit
 ) {
+
+    val state  = viewModel.state.value
+
     Column (modifier = Modifier.fillMaxSize()) {
         SearchBar(
             modifier = Modifier
@@ -29,10 +33,10 @@ fun SearchScreen(
             text = state.searchQuery ,
             isReadOnly = false,
             onSearch = {
-             event.invoke(SearchScreenEvent.SearchEvent)
+                viewModel.onEvent(SearchScreenEvent.SearchEvent)
             },
             onValueChanged = {
-                event.invoke(SearchScreenEvent.UpdateSearchKeyword(it))
+                viewModel.onEvent(SearchScreenEvent.UpdateSearchKeyword(it))
             },
             onClick = {}
         )

@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.droidcourses.newsapp.R
 import com.droidcourses.newsapp.designsystem.mediumSpacing
 import com.droidcourses.newsapp.designsystem.smallSpacing
@@ -23,7 +24,11 @@ import com.droidcourses.newsapp.presentation.components.ArticleCard
 import com.droidcourses.newsapp.presentation.components.EmptyScreen
 
 @Composable
-fun BookmarkScreen(articles: List<Article>, event: (BookmarkScreenEvent) -> Unit) {
+fun BookmarkScreen(
+    viewModel: BookmarkViewModel = hiltViewModel()
+) {
+    val articles = viewModel.localNewsState.value.data
+
     Column (
         Modifier
             .padding(mediumSpacing)
@@ -33,8 +38,7 @@ fun BookmarkScreen(articles: List<Article>, event: (BookmarkScreenEvent) -> Unit
             text = stringResource(id = R.string.bookmark),
             style = MaterialTheme.typography.headlineLarge.copy(fontWeight = FontWeight.Bold)
         )
-
-        BookmarkedArticles(articles = articles, event= event)
+        BookmarkedArticles(articles = articles)
     }
 }
 
@@ -43,7 +47,6 @@ fun BookmarkScreen(articles: List<Article>, event: (BookmarkScreenEvent) -> Unit
         modifier: Modifier = Modifier,
         articles: List<Article>,
         onClick: ((Article) -> Unit)? = null,
-        event: (BookmarkScreenEvent) -> Unit
     ) {
         if (articles.isEmpty()){
             EmptyScreen()

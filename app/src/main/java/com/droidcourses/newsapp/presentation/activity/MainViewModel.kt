@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.droidcourses.newsapp.domain.usecase.OnBoardingUseCase
 import com.droidcourses.newsapp.presentation.home.HOME_ROUTE
-import com.droidcourses.newsapp.presentation.navigation.Screen
 import com.droidcourses.newsapp.presentation.onboarding.ONBOARDING_ROUTE
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
