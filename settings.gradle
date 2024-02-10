@@ -16,3 +16,4 @@ rootProject.name = "NewsApp"
 include ':app'
 include ':uicomponents'
 include ':designsystem'
+include ':feature:onboarding'

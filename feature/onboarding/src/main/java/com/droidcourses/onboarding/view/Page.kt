@@ -1,4 +1,4 @@
-package com.droidcourses.newsapp.presentation.onboarding
+package com.droidcourses.onboarding.view
 
 import androidx.annotation.DrawableRes
 import com.droidcourses.designsystem.R as designR

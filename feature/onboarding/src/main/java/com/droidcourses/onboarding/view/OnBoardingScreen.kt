@@ -1,4 +1,4 @@
-package com.droidcourses.newsapp.presentation.onboarding
+package com.droidcourses.onboarding.view
 
 import android.content.res.Configuration
 import androidx.compose.foundation.ExperimentalFoundationApi
@@ -22,7 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.droidcourses.designsystem.mediumSpacing
-import com.droidcourses.newsapp.R
+import com.droidcourses.designsystem.R as designR
 import com.droidcourses.uicomponents.OnBoardingItem
 import com.droidcourses.uicomponents.PageIndicator
 import com.droidcourses.uicomponents.PrimaryButton
@@ -63,16 +63,16 @@ fun OnBoardingScreen(viewModel: OnBoardingViewModel = hiltViewModel()) {
         ) {
             val scope = rememberCoroutineScope()
             if (pagerState.currentPage > 0) {
-                SecondaryButton(text = stringResource(id = R.string.back)) {
+                SecondaryButton(text = stringResource(id = designR.string.back)) {
                     scope.launch {
                         pagerState.animateScrollToPage(page = pagerState.currentPage - 1)
                     }
                 }
             }
             val ctaString = if (pagerState.currentPage == 2)
-                stringResource(id = R.string.get_started)
+                stringResource(id = designR.string.get_started)
             else
-                stringResource(id = R.string.next)
+                stringResource(id = designR.string.next)
             PrimaryButton(text = ctaString) {
                 scope.launch {
                     if (pagerState.currentPage == 2)
@@ -93,5 +93,5 @@ fun OnBoardingScreen(viewModel: OnBoardingViewModel = hiltViewModel()) {
 )
 @Composable
 fun OnBoardingScreenPreview() {
-    OnBoardingItem(modifier = Modifier, title = "hello", description = "description", imageRes = R.drawable.ic_splash)
+    OnBoardingItem(modifier = Modifier, title = "hello", description = "description", imageRes = com.droidcourses.designsystem.R.drawable.ic_home)
 }

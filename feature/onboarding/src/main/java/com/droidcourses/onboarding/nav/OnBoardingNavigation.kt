@@ -3,6 +3,7 @@ package com.droidcourses.newsapp.presentation.onboarding
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
+import com.droidcourses.onboarding.view.OnBoardingScreen
 
 
 const val  ONBOARDING_ROUTE = "onboarding_screen"

@@ -1,8 +1,8 @@
-package com.droidcourses.newsapp.presentation.onboarding
+package com.droidcourses.onboarding.view
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.droidcourses.newsapp.domain.usecase.OnBoardingUseCase
+import com.droidcourses.onboarding.usecase.OnBoardingUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

@@ -12,7 +12,7 @@ import com.droidcourses.newsapp.data.repository.user.LocalUserManagerImpl
 import com.droidcourses.newsapp.domain.repository.news.NewsRepository
 import com.droidcourses.newsapp.domain.repository.user.LocalUserManager
 import com.droidcourses.newsapp.domain.usecase.NewsUseCase
-import com.droidcourses.newsapp.domain.usecase.OnBoardingUseCase
+import com.droidcourses.onboarding.usecase.OnBoardingUseCase
 import com.droidcourses.newsapp.util.AppConst
 import dagger.Module
 import dagger.Provides

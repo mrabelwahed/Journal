@@ -110,5 +110,6 @@ dependencies {
 
     implementation(project(":uicomponents"))
     implementation(project(":designsystem"))
+    implementation(project(":feature:onboarding"))
 
 }
