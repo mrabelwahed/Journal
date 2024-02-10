@@ -34,6 +34,14 @@ The goal is to build a multi-module Android App with all good stuff nowadays
 - Add UI testing  using Espresso
 - Add Snap shot testing using Pappartzi
 - Add cool Animations
+- Add Version Catalog
+
+# Current Modules
+
+- design system : holds fonts/colors/types/theme + resources +localisation (needs refactor)
+- ui components: holds some reusable components
+- onboarding feature
+
 
 # Support Me
 https://www.buymeacoffee.com/ramadan
