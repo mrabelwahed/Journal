@@ -28,13 +28,13 @@ The goal is to build a multi-module Android App with all good stuff nowadays
 - Jetpack components
 - Coil 
 - Support Dark Theme
+- Support Version Catalog
 
 # Plan
 - Add Unit testing using Junit and Mockk
 - Add UI testing  using Espresso
 - Add Snap shot testing using Pappartzi
 - Add cool Animations
-- Add Version Catalog
 
 # Current Modules
 

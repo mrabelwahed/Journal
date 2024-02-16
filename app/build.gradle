@@ -1,19 +1,19 @@
 plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-    id 'kotlin-kapt'
-    id 'com.google.dagger.hilt.android'
-    id 'kotlin-parcelize'
+    alias libs.plugins.android.application
+    alias libs.plugins.kotlin.android
+    alias libs.plugins.parcelable
+    alias libs.plugins.hilt
+    alias libs.plugins.kapt
 }
 
 android {
     namespace 'com.droidcourses.newsapp'
-    compileSdk 34
+    compileSdk libs.versions.target.sdk.version.get().toInteger()
 
     defaultConfig {
         applicationId "com.droidcourses.newsapp"
-        minSdk 24
-        targetSdk 33
+        minSdk libs.versions.min.sdk.version.get().toInteger()
+        targetSdk libs.versions.target.sdk.version.get().toInteger()
         versionCode 1
         versionName "1.0"
 
@@ -50,6 +50,9 @@ android {
 }
 
 dependencies {
+    implementation(project(":uicomponents"))
+    implementation(project(":designsystem"))
+    implementation(project(":feature:onboarding"))
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation platform('org.jetbrains.kotlin:kotlin-bom:1.8.0')
@@ -108,8 +111,6 @@ dependencies {
     kapt "androidx.room:room-compiler:$room_version"
     implementation "androidx.room:room-ktx:2.5.2"
 
-    implementation(project(":uicomponents"))
-    implementation(project(":designsystem"))
-    implementation(project(":feature:onboarding"))
+
 
 }
