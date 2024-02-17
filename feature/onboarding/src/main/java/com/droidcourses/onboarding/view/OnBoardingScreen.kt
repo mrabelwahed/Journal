@@ -1,6 +1,10 @@
 package com.droidcourses.onboarding.view
 
 import android.content.res.Configuration
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.animateContentSize
+import androidx.compose.animation.core.LinearOutSlowInEasing
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -62,7 +66,7 @@ fun OnBoardingScreen(viewModel: OnBoardingViewModel = hiltViewModel()) {
             ,horizontalArrangement = Arrangement.End
         ) {
             val scope = rememberCoroutineScope()
-            if (pagerState.currentPage > 0) {
+            AnimatedVisibility (pagerState.currentPage > 0) {
                 SecondaryButton(text = stringResource(id = designR.string.back)) {
                     scope.launch {
                         pagerState.animateScrollToPage(page = pagerState.currentPage - 1)
@@ -73,7 +77,8 @@ fun OnBoardingScreen(viewModel: OnBoardingViewModel = hiltViewModel()) {
                 stringResource(id = designR.string.get_started)
             else
                 stringResource(id = designR.string.next)
-            PrimaryButton(text = ctaString) {
+            PrimaryButton(text = ctaString, modifier = Modifier.animateContentSize ( animationSpec = tween(durationMillis = 300,
+                easing = LinearOutSlowInEasing))) {
                 scope.launch {
                     if (pagerState.currentPage == 2)
                         viewModel.onEvent(OnBoardingEvent.OnBoardingVisited)

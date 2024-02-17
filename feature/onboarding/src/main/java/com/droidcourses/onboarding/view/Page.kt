@@ -24,7 +24,7 @@ val pages = mutableListOf(
     ),
 
     Page(
-        title = "Connect and Share with Newsy Community",
+        title = "Connect and Share",
         description = "Description: Join a vibrant community of like-minded individuals on Journal. Share your thoughts, discover new perspectives, and connect with people who share your passions. Engage in discussions, make new friends, and build a network that enhances your journey within the [Your App Name] community.",
         image = designR.drawable.onboarding3x,
     )
