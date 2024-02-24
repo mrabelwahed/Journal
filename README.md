@@ -33,20 +33,19 @@ The goal is to build a multi-module Android App with all good stuff nowadays
 # Plan
 - Add Unit testing using Junit and Mockk
 - Add UI testing  using Espresso
-- Add Snap shot testing using Pappartzi
+- Add Snap shot testing using Paparazzi
 - Add cool Animations
-
+- Add Native Module for Keys
+- Add common gradle file instead of dependency redundancy
+- 
 # Current Modules
 
 - design system : holds fonts/colors/types/theme + resources +localisation (needs refactor)
 - ui components: holds some reusable components
 - onboarding feature
-
-## In progress
-- news
-- bookmarks
-- database
-- network
+- news feature (list/search/details)
+- bookmarks 
+- news-bookmarks (shared business and data layer ,  because the two features need it)
 
 
 # Support Me

@@ -4,9 +4,9 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.droidcourses.onboarding.usecase.OnBoardingUseCase
-import com.droidcourses.newsapp.presentation.home.HOME_ROUTE
-import com.droidcourses.newsapp.presentation.onboarding.ONBOARDING_ROUTE
+import com.droidcourses.onboarding.domain.usecase.OnBoardingUseCase
+import com.droidcourses.news.ui.home.HOME_ROUTE
+import com.droidcourses.onboarding.ui.nav.ONBOARDING_ROUTE
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.launchIn

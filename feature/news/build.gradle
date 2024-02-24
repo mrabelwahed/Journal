@@ -1,6 +1,9 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias libs.plugins.hilt
+    alias libs.plugins.kapt
+    alias libs.plugins.parcelable
 }
 
 android {
@@ -21,20 +24,36 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = '17'
+    }
+
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.4.7"
     }
 }
 
 dependencies {
 
-    implementation libs.androidx.ktx
-    implementation libs.androidx.appcompat
-    implementation libs.material
-    testImplementation libs.junit
-    androidTestImplementation libs.androidx.junit
-    androidTestImplementation libs.androidx.espresso
+    implementation(project(":uicomponents"))
+    implementation(project(":core:common"))
+    api(project(":feature:news-bookmarks"))
+    implementation(libs.bundles.androidx)
+    implementation(platform(libs.compose.bom))
+    implementation(libs.bundles.compose)
+    implementation(libs.coil.compose)
+    implementation(libs.paging.runtime)
+    implementation(libs.paging.compose)
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
+    implementation(libs.bundles.hilt)
+    kapt(libs.hilt.compiler)
+
+
 }

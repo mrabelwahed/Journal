@@ -45,17 +45,19 @@ android {
 }
 
 dependencies {
-    implementation "com.google.accompanist:accompanist-systemuicontroller:0.31.4-beta"
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation project(':core:common')
+    implementation(project(":uicomponents"))
 
     implementation(libs.bundles.androidx)
     implementation(platform(libs.compose.bom))
     implementation(libs.bundles.compose)
     implementation(libs.coil.compose)
+    implementation(libs.datastore)
     implementation(libs.bundles.hilt)
     kapt(libs.hilt.compiler)
 
-    implementation(project(":uicomponents"))
+
+
+    implementation "com.google.accompanist:accompanist-systemuicontroller:0.31.4-beta" // TODO: remove this later, used for pager state
+
 }

@@ -22,10 +22,10 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.droidcourses.newsapp.presentation.bookmark.BOOKMARK_SCREEN
-import com.droidcourses.newsapp.presentation.home.HOME_ROUTE
+import com.droidcourses.bookmarks.BOOKMARK_SCREEN
+import com.droidcourses.news.ui.home.HOME_ROUTE
 import com.droidcourses.newsapp.presentation.navigation.NavGraph
-import com.droidcourses.newsapp.presentation.search.SEARCH_SCREEN
+import com.droidcourses.news.ui.search.SEARCH_SCREEN
 
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
