@@ -42,6 +42,12 @@ The goal is to build a multi-module Android App with all good stuff nowadays
 - ui components: holds some reusable components
 - onboarding feature
 
+## In progress
+- news
+- bookmarks
+- database
+- network
+
 
 # Support Me
 https://www.buymeacoffee.com/ramadan

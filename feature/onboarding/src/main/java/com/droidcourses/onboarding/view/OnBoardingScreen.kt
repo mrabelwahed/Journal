@@ -73,12 +73,15 @@ fun OnBoardingScreen(viewModel: OnBoardingViewModel = hiltViewModel()) {
                     }
                 }
             }
+
             val ctaString = if (pagerState.currentPage == 2)
                 stringResource(id = designR.string.get_started)
             else
                 stringResource(id = designR.string.next)
-            PrimaryButton(text = ctaString, modifier = Modifier.animateContentSize ( animationSpec = tween(durationMillis = 300,
-                easing = LinearOutSlowInEasing))) {
+
+            PrimaryButton(
+                text = ctaString,
+                modifier = Modifier.animateContentSize ( animationSpec = tween(durationMillis = 300,easing = LinearOutSlowInEasing))) {
                 scope.launch {
                     if (pagerState.currentPage == 2)
                         viewModel.onEvent(OnBoardingEvent.OnBoardingVisited)
