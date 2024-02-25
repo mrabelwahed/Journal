@@ -17,7 +17,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "com.droidcourses.CustomUITestRunner"
         vectorDrawables {
             useSupportLibrary true
         }
@@ -61,14 +61,18 @@ dependencies {
     implementation(libs.bundles.androidx)
     implementation(platform(libs.compose.bom))
     implementation(libs.bundles.compose)
-   implementation(libs.splash)
+    implementation(libs.splash)
+    implementation(libs.bundles.hilt)
+    kapt(libs.hilt.compiler)
 
-    //Compose Navigation
-    def nav_version = "2.6.0"
-    implementation "androidx.navigation:navigation-compose:$nav_version"
+    // UI testing
+    androidTestImplementation(platform(libs.compose.bom))
+    androidTestImplementation(libs.bundles.ui.testing)
+    kaptAndroidTest(libs.hilt.android.test.compiler)
+    debugImplementation(libs.bundles.compose.debug)
 
-//    Dagger Hilt
-    implementation "com.google.dagger:hilt-android:2.45"
-    kapt "com.google.dagger:hilt-compiler:2.45"
-    implementation 'androidx.hilt:hilt-navigation-compose:1.0.0'
+////    Dagger Hilt
+//    implementation "com.google.dagger:hilt-android:2.45"
+//    kapt "com.google.dagger:hilt-compiler:2.45"
+//    implementation 'androidx.hilt:hilt-navigation-compose:1.0.0'
 }

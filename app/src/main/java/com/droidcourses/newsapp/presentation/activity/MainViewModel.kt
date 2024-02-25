@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(private val onBoardingUseCase: OnBoardingUseCase): ViewModel() {
-    private var _startDestination = mutableStateOf(ONBOARDING_ROUTE)
+    var _startDestination = mutableStateOf(ONBOARDING_ROUTE)
     val startDestination: State<String> = _startDestination
 
     private var _shouldKeepSplash = mutableStateOf(true)
@@ -28,7 +28,7 @@ class MainViewModel @Inject constructor(private val onBoardingUseCase: OnBoardin
                    _startDestination.value = HOME_ROUTE
                else
                    _startDestination.value = ONBOARDING_ROUTE
-               delay(200) // to simulate splash, for testing purpose
+                delay(200) // to simulate splash, for testing purpose
                _shouldKeepSplash.value = false
            }
            .launchIn(viewModelScope)

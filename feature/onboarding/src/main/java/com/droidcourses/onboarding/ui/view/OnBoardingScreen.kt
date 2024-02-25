@@ -21,7 +21,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -67,7 +70,7 @@ fun OnBoardingScreen(viewModel: OnBoardingViewModel = hiltViewModel()) {
         ) {
             val scope = rememberCoroutineScope()
             AnimatedVisibility (pagerState.currentPage > 0) {
-                SecondaryButton(text = stringResource(id = designR.string.back)) {
+                SecondaryButton(text = stringResource(id = designR.string.back), modifier = Modifier.semantics { testTag = "back" }) {
                     scope.launch {
                         pagerState.animateScrollToPage(page = pagerState.currentPage - 1)
                     }
@@ -81,7 +84,10 @@ fun OnBoardingScreen(viewModel: OnBoardingViewModel = hiltViewModel()) {
 
             PrimaryButton(
                 text = ctaString,
-                modifier = Modifier.animateContentSize ( animationSpec = tween(durationMillis = 300,easing = LinearOutSlowInEasing))) {
+                modifier = Modifier
+                    .animateContentSize ( animationSpec = tween(durationMillis = 300,easing = LinearOutSlowInEasing))
+                    .semantics { testTag = "cta" }
+            ) {
                 scope.launch {
                     if (pagerState.currentPage == 2)
                         viewModel.onEvent(OnBoardingEvent.OnBoardingVisited)

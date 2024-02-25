@@ -1,6 +1,6 @@
 # Journal
-An Android app built with Jetpack Compose and the latest android libraries. 
-The goal is to build a multi-module Android App with all good stuff nowadays
+Multi-module Android app built with Jetpack Compose and the latest android libraries. 
+
 
 # Preview 
 <p float="left">
@@ -37,7 +37,7 @@ The goal is to build a multi-module Android App with all good stuff nowadays
 - Add cool Animations
 - Add Native Module for Keys
 - Add common gradle file instead of dependency redundancy
-- 
+- Add CI/CD using github actions
 # Current Modules
 
 - design system : holds fonts/colors/types/theme + resources +localisation (needs refactor)
@@ -46,6 +46,7 @@ The goal is to build a multi-module Android App with all good stuff nowadays
 - news feature (list/search/details)
 - bookmarks 
 - news-bookmarks (shared business and data layer ,  because the two features need it)
+- common for shared logic and utils
 
 
 # Support Me
