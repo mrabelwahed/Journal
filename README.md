@@ -1,5 +1,5 @@
 # Journal
-Multi-module Android app built with Jetpack Compose and the latest android libraries. 
+Multi-module Android app built with Jetpack Compose and the latest android libraries. [InProgress.....]
 
 
 # Preview 
