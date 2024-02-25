@@ -48,6 +48,8 @@ Multi-module Android app built with Jetpack Compose and the latest android libra
 - news-bookmarks (shared business and data layer ,  because the two features need it)
 - common for shared logic and utils
 
+# InProgress ......
+ - Implement UI Tests using Robot pattern and other tools
 
 # Support Me
 https://www.buymeacoffee.com/ramadan
