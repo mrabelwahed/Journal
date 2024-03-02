@@ -1,12 +1,13 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-    alias libs.plugins.kapt
     alias libs.plugins.hilt
+    alias libs.plugins.kapt
+    alias libs.plugins.parcelable
 }
 
 android {
-    namespace 'com.droidcourses.bookmarks'
+    namespace 'com.droidcourses.news'
     compileSdk 34
 
     defaultConfig {
@@ -29,8 +30,9 @@ android {
     kotlinOptions {
         jvmTarget = '17'
     }
-    buildFeatures { // Enables Jetpack Compose for this module
-        compose = true
+
+    buildFeatures {
+        compose true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.7"
@@ -38,13 +40,15 @@ android {
 }
 
 dependencies {
-    api api(project(':feature:domain',))
-    implementation(project(":designsystem"))
+
+    implementation(project(":uicomponents"))
+    implementation(project(":core:common"))
     implementation(libs.bundles.androidx)
     implementation(platform(libs.compose.bom))
     implementation(libs.bundles.compose)
     implementation(libs.coil.compose)
-    implementation(libs.datastore)
+    implementation(libs.paging.runtime)
+    implementation(libs.paging.compose)
     implementation(libs.bundles.hilt)
     kapt(libs.hilt.compiler)
 }

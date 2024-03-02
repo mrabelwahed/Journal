@@ -43,7 +43,7 @@ dependencies {
 
     implementation(project(":uicomponents"))
     implementation(project(":core:common"))
-    api(project(":feature:news-bookmarks"))
+    api api(project(':feature:domain',))
     implementation(libs.bundles.androidx)
     implementation(platform(libs.compose.bom))
     implementation(libs.bundles.compose)

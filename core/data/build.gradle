@@ -2,11 +2,10 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias libs.plugins.kapt
-    alias libs.plugins.hilt
 }
 
 android {
-    namespace 'com.droidcourses.bookmarks'
+    namespace 'com.droidcourses.data'
     compileSdk 34
 
     defaultConfig {
@@ -29,22 +28,20 @@ android {
     kotlinOptions {
         jvmTarget = '17'
     }
-    buildFeatures { // Enables Jetpack Compose for this module
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.7"
-    }
 }
 
 dependencies {
-    api api(project(':feature:domain',))
-    implementation(project(":designsystem"))
-    implementation(libs.bundles.androidx)
-    implementation(platform(libs.compose.bom))
-    implementation(libs.bundles.compose)
-    implementation(libs.coil.compose)
-    implementation(libs.datastore)
+    implementation(project(":feature:domain"))
+    implementation(project(":core:database"))
+    implementation(project(":core:network"))
+    implementation(project(":core:common"))
+    implementation libs.androidx.ktx
+    implementation libs.androidx.appcompat
+    implementation libs.material
     implementation(libs.bundles.hilt)
     kapt(libs.hilt.compiler)
+
+    testImplementation libs.junit
+    androidTestImplementation libs.androidx.junit
+    androidTestImplementation libs.androidx.espresso
 }

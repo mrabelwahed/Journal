@@ -54,8 +54,11 @@ dependencies {
     implementation(project(":designsystem"))
     implementation(project(":feature:onboarding"))
     implementation(project(":feature:bookmarks"))
+    implementation(project(":feature:domain"))
     implementation(project(":feature:news"))
+    implementation(project(":core:data"))
     implementation(project(":core:common"))
+    implementation(project(":core:database"))
 
 
     implementation(libs.bundles.androidx)
@@ -70,9 +73,4 @@ dependencies {
     androidTestImplementation(libs.bundles.ui.testing)
     kaptAndroidTest(libs.hilt.android.test.compiler)
     debugImplementation(libs.bundles.compose.debug)
-
-////    Dagger Hilt
-//    implementation "com.google.dagger:hilt-android:2.45"
-//    kapt "com.google.dagger:hilt-compiler:2.45"
-//    implementation 'androidx.hilt:hilt-navigation-compose:1.0.0'
 }
