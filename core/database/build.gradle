@@ -32,8 +32,8 @@ android {
 }
 
 dependencies {
-    implementation project(':core:common')
-    implementation(project(":feature:domain"))
+    implementation project(":core:common")
+    implementation(project(":core:domain"))
     implementation libs.androidx.ktx
     implementation libs.androidx.appcompat
     implementation libs.material

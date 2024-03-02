@@ -43,7 +43,7 @@ dependencies {
 
     implementation(project(":uicomponents"))
     implementation(project(":core:common"))
-    api api(project(':feature:domain',))
+    api(project(":core:domain"))
     implementation(libs.bundles.androidx)
     implementation(platform(libs.compose.bom))
     implementation(libs.bundles.compose)

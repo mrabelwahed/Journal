@@ -54,9 +54,9 @@ dependencies {
     implementation(project(":designsystem"))
     implementation(project(":feature:onboarding"))
     implementation(project(":feature:bookmarks"))
-    implementation(project(":feature:domain"))
     implementation(project(":feature:news"))
     implementation(project(":core:data"))
+    implementation(project(":core:domain"))
     implementation(project(":core:common"))
     implementation(project(":core:database"))
 

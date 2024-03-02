@@ -38,7 +38,7 @@ android {
 }
 
 dependencies {
-    api api(project(':feature:domain',))
+     api(project(":core:domain"))
     implementation(project(":designsystem"))
     implementation(libs.bundles.androidx)
     implementation(platform(libs.compose.bom))
