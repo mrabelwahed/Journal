@@ -3,11 +3,10 @@ plugins {
     alias(libs.plugins.kotlin.android)
     alias libs.plugins.hilt
     alias libs.plugins.kapt
-    alias libs.plugins.parcelable
 }
 
 android {
-    namespace 'com.droidcourses.news'
+    namespace 'com.droidcourses.news_details'
     compileSdk 34
 
     defaultConfig {
@@ -34,17 +33,16 @@ android {
     buildFeatures {
         compose true
     }
-
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.7"
     }
 }
 
 dependencies {
-
+    api(project(":core:domain"))
+    implementation(project(":designsystem"))
     implementation(project(":uicomponents"))
     implementation(project(":core:common"))
-    api(project(":core:domain"))
     implementation(libs.bundles.androidx)
     implementation(platform(libs.compose.bom))
     implementation(libs.bundles.compose)
@@ -55,6 +53,4 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.bundles.hilt)
     kapt(libs.hilt.compiler)
-
-
 }

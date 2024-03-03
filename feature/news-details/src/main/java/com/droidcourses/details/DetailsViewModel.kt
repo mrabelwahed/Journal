@@ -1,9 +1,5 @@
-package com.droidcourses.news.ui.details
+package com.droidcourses.details
 
-import android.content.Intent
-import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
-import android.net.Uri
-import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.droidcourses.news_bookmarks.domain.models.Article

@@ -4,13 +4,13 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import com.droidcourses.bookmarks.bookmarkScreen
-import com.droidcourses.newsapp.presentation.details.navigateToNewsDetails
-import com.droidcourses.newsapp.presentation.details.newsDetailsScreen
 import com.droidcourses.news.ui.home.homeScreen
 import com.droidcourses.onboarding.ui.nav.onBoardingScreen
 import com.droidcourses.news.ui.search.navigateToSearch
 import com.droidcourses.news.ui.search.searchScreen
 import com.droidcourses.common.util.AppConst.ARTICLE
+import com.droidcourses.details.navigateToNewsDetails
+import com.droidcourses.details.newsDetailsScreen
 
 @Composable
 fun NavGraph(startDestination: String, navController: NavHostController) {

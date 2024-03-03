@@ -26,6 +26,8 @@ import coil.compose.AsyncImage
 import com.droidcourses.common.util.AppConst
 import com.droidcourses.designsystem.largeSpacing
 import com.droidcourses.designsystem.mediumSpacing
+import com.droidcourses.details.DetailsScreenEvent
+import com.droidcourses.details.DetailsViewModel
 import com.droidcourses.news_bookmarks.domain.models.Article
 import com.droidcourses.uicomponents.DetailsTopBar
 import com.droidcourses.designsystem.R as designR
@@ -36,7 +38,7 @@ fun NewsDetailsScreen(
     navController: NavController,
     onNavigateUp: () -> Unit
 ) {
-    val article = navController.previousBackStackEntry?.savedStateHandle?.get<com.droidcourses.news_bookmarks.domain.models.Article>(AppConst.ARTICLE)
+    val article = navController.previousBackStackEntry?.savedStateHandle?.get<Article>(AppConst.ARTICLE)
     val context = LocalContext.current
     Column {
         DetailsTopBar(

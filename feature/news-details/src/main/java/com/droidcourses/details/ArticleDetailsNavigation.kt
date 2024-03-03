@@ -1,4 +1,4 @@
-package com.droidcourses.newsapp.presentation.details
+package com.droidcourses.details
 
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
