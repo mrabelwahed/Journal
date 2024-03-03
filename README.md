@@ -2,7 +2,7 @@
 Multi-module Android app built with Jetpack Compose and the latest android libraries. [InProgress.....]
 
 # Modularization Style: 
--- Hybrid (By layer and By Feature)
+- Hybrid (By layer and By Feature)
 
 # Preview 
 <p float="left">
@@ -40,15 +40,17 @@ Multi-module Android app built with Jetpack Compose and the latest android libra
 - Add Native Module for Keys
 - Add common gradle file instead of dependency redundancy
 - Add CI/CD using github actions
-- 
+
 # Current Modules
 
 - design system : holds fonts/colors/types/theme + resources +localisation (needs refactor)
 - ui components: holds some reusable components
 - Features
-  - onboarding feature
-  - news feature (list/search/details need refactor to break it into three features list/search/details)
+  - onboarding 
+  - news  
   - bookmarks 
+  - news search
+  - news details
 - Core
   - data  for repository and mappers 
   - domain  for use cases and business

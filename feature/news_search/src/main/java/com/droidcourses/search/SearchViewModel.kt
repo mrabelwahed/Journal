@@ -1,4 +1,4 @@
-package com.droidcourses.news.ui.search
+package com.droidcourses.search
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf

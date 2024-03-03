@@ -25,7 +25,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import com.droidcourses.bookmarks.BOOKMARK_SCREEN
 import com.droidcourses.news.ui.home.HOME_ROUTE
 import com.droidcourses.newsapp.presentation.navigation.NavGraph
-import com.droidcourses.news.ui.search.SEARCH_SCREEN
+import com.droidcourses.search.SEARCH_SCREEN
 
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")

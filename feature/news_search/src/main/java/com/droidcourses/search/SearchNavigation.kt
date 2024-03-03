@@ -1,4 +1,4 @@
-package com.droidcourses.news.ui.search
+package com.droidcourses.search
 
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder

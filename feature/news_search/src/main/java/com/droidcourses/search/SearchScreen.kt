@@ -1,4 +1,4 @@
-package com.droidcourses.news.ui.search
+package com.droidcourses.search
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -11,14 +11,13 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.droidcourses.designsystem.mediumSpacing
-import com.droidcourses.news.ui.EmptyScreen
-import com.droidcourses.news.ui.home.ArticleList
+import com.droidcourses.news_bookmarks.domain.models.Article
 import com.droidcourses.uicomponents.SearchBar
 
 @Composable
 fun SearchScreen(
     viewModel: SearchViewModel = hiltViewModel(),
-    onArticleClicked: (com.droidcourses.news_bookmarks.domain.models.Article) -> Unit
+    onArticleClicked: (Article) -> Unit
 ) {
 
     val state  = viewModel.state.value
@@ -40,7 +39,7 @@ fun SearchScreen(
             onClick = {}
         )
         state.articles?.let {
-            val articles: LazyPagingItems<com.droidcourses.news_bookmarks.domain.models.Article> = it.collectAsLazyPagingItems()
+            val articles: LazyPagingItems<Article> = it.collectAsLazyPagingItems()
             ArticleList(articles = articles){ article ->
                 onArticleClicked.invoke(article)
             }
