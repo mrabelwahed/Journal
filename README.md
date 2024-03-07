@@ -35,11 +35,11 @@ Multi-module Android app built with Jetpack Compose and the latest android libra
 # Plan
 - Add Unit testing using Junit and Mockk
 - Add UI testing  using Espresso
-- Add Snap shot testing using Paparazzi
+- Add Snapshot testing using ComposeUI Testing Lib
 - Add cool Animations
 - Add Native Module for Keys
-- Add common gradle file instead of dependency redundancy
-- Add CI/CD using github actions
+- Add a common gradle file instead of dependency redundancy
+- Add CI/CD using GitHub actions
 
 # Current Modules
 
