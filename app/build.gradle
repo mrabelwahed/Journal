@@ -21,6 +21,7 @@ android {
         vectorDrawables {
             useSupportLibrary true
         }
+
     }
 
     buildTypes {
@@ -28,6 +29,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
@@ -61,8 +63,11 @@ dependencies {
     implementation(project(":core:domain"))
     implementation(project(":core:common"))
     implementation(project(":core:database"))
+    implementation(project(":core:network"))
 
 
+    implementation(libs.okhttp)
+    implementation(libs.interceptor)
     implementation(libs.bundles.androidx)
     implementation(platform(libs.compose.bom))
     implementation(libs.bundles.compose)
@@ -75,4 +80,7 @@ dependencies {
     androidTestImplementation(libs.bundles.ui.testing)
     kaptAndroidTest(libs.hilt.android.test.compiler)
     debugImplementation(libs.bundles.compose.debug)
+    androidTestImplementation(libs.mockwebserver)
+    androidTestImplementation(libs.okhttp)
+
 }

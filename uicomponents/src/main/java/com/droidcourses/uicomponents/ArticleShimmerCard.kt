@@ -20,7 +20,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import com.droidcourses.designsystem.mediumSpacing
 import com.droidcourses.designsystem.smallSpacing
@@ -29,13 +32,14 @@ import com.droidcourses.designsystem.R as designR
 @Composable
 fun ArticleCardShimmerEffect(modifier: Modifier = Modifier) {
     Row(
-        modifier = modifier
+        modifier = modifier.semantics { contentDescription = "Item" }
     ) {
         Box(
             modifier = Modifier
                 .size(100.dp)
                 .clip(MaterialTheme.shapes.medium)
                 .shimmerEffect()
+
         )
         Column(
             verticalArrangement = Arrangement.SpaceAround,

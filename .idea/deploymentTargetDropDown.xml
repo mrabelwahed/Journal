@@ -2,6 +2,9 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+      <entry key="NewsListTest">
+        <State />
+      </entry>
       <entry key="OnBoardingTest">
         <State />
       </entry>
@@ -9,6 +12,9 @@
         <State />
       </entry>
       <entry key="designsystem">
+        <State />
+      </entry>
+      <entry key="loadNewsListShouldBeVisible()">
         <State />
       </entry>
       <entry key="uicomponents">

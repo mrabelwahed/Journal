@@ -1,4 +1,4 @@
-package com.droidcourses.news_bookmarks.data.local
+package com.droidcourses.database.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

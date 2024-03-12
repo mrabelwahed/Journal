@@ -9,19 +9,13 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor(private val newsUseCase: com.droidcourses.news_bookmarks.domain.usecase.NewsUseCase): ViewModel() {
+class HomeViewModel @Inject constructor(newsUseCase: NewsUseCase): ViewModel() {
 
     var  state = mutableStateOf(HomeState())
         private set
 
-    private val query = listOf("bbc-news","abc-news","al-jazeera-english")
+    private val query = listOf("bbc-news")
     val news = newsUseCase.getNews(query).cachedIn(viewModelScope)
-
-//    private fun onEvent(event: HomeScreenEvent) {
-////        when(event) {
-//////            is HomeScreenEvent.OpenSearch ->
-////        }
-//    }
 
 }
 

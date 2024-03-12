@@ -8,6 +8,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.testTag
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.testTag
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import com.droidcourses.designsystem.mediumSpacing
@@ -40,7 +44,7 @@ fun ArticleList(
             ) {
                 articles[it]?.let { article ->
                     ArticleCard(
-                        modifier = modifier,
+                        modifier = modifier.semantics { contentDescription = "Article $it" },
                         article = article,
                         onClick = { onClick?.invoke(article) }
                     )

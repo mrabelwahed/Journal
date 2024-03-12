@@ -44,4 +44,6 @@ dependencies {
     testImplementation libs.junit
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso
+    implementation(libs.interceptor)
+    implementation(libs.okhttp)
 }

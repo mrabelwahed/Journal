@@ -55,6 +55,6 @@ dependencies {
     implementation(libs.converter.gson)
     implementation(libs.bundles.hilt)
     kapt(libs.hilt.compiler)
-
+    implementation(libs.interceptor)
 
 }

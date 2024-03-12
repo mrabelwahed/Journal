@@ -21,7 +21,7 @@ class OnBoardingTest {
     @get:Rule(order = 1)
     val composeRule = createAndroidComposeRule<MainActivity>()
 
-    lateinit var viewModel:MainViewModel
+    private lateinit var viewModel:MainViewModel
 
     @Before
     fun setup() {
@@ -75,7 +75,7 @@ class OnBoardingTest {
             clickNext()
             clickGetStartedButton()
             viewModel._startDestination.value = HOME_ROUTE
-            composeRule.mainClock.advanceTimeBy(2000)
+            waitUntilNextScreenIsVisible()
         } verify {
             newsListScreenIsVisible()
         }

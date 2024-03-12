@@ -1,0 +1,45 @@
+{
+  "status": "ok",
+  "totalResults": 3,
+  "articles": [
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": "https://www.facebook.com/bbcnews",
+      "title": "Ministers call for defence spending of 2.5% of GDP",
+      "description": "Two senior Conservatives publicly call on Rishi Sunak to increase spending to counter global risks.",
+      "url": "https://www.bbc.co.uk/news/uk-politics-68522402",
+      "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/3FF9/production/_132877361_britisharmyestonia.png",
+      "publishedAt": "2024-03-09T15:12:43Z",
+      "content": "Two ministers have publicly urged the government to increase defence spending to above 2.5% of national income.\r\nAnne-Marie Trevelyan and Tom Tugendhat said the UK needed to \"lead the way\" and invest… [+2023 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": null,
+      "title": "Six Nations: Wales v France - watch, listen & text",
+      "description": "Watch BBC One coverage and follow radio and text commentary as Wales seek a first win of the 2024 Six Nations.",
+      "url": "https://www.bbc.co.uk/sport/live/rugby-union/67803863",
+      "urlToImage": "https:////m.files.bbci.co.uk/modules/bbc-morph-sport-seo-meta/1.23.3/images/bbc-sport-logo.png",
+      "publishedAt": "2024-03-09T15:09:56Z",
+      "content": "Elliot Dee will win his 50th cap todayImage caption: Elliot Dee will win his 50th cap today\r\nWales have been forced into a late change with hooker Ryan Elias withdrawing due to a hamstring problem.\r\n… [+1485 chars]"
+    },
+    {
+      "source": {
+        "id": "bbc-news",
+        "name": "BBC News"
+      },
+      "author": null,
+      "title": "Wales v France: Match preview & BBC coverage",
+      "description": "Match preview, team news, BBC coverage and statistics for Sunday's Six Nations match between Wales and France at the Principality Stadium.",
+      "url": "https://www.bbc.co.uk/sport/rugby-union/68497680",
+      "urlToImage": "https://ichef.bbci.co.uk/live-experience/cps/624/cpsprodpb/13675/production/_132877497_walesxfrance.jpg",
+      "publishedAt": "2024-03-09T15:09:25Z",
+      "content": "<table><tr><th>Guinness Six Nations: Wales v France</th></tr>\r\n<tr><td>Venue: Principality Stadium, Cardiff Date: Sunday, 10 March Kick-off: 15:00 GMT</td></tr><tr><td>Coverage: Watch live on BBC One… [+4715 chars]"
+    }
+  ]
+}

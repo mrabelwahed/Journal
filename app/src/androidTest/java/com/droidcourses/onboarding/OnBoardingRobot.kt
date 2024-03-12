@@ -1,6 +1,8 @@
 package com.droidcourses.onboarding
 
+import androidx.compose.ui.test.ExperimentalTestApi
 import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.hasText
 import androidx.compose.ui.test.junit4.AndroidComposeTestRule
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
@@ -27,6 +29,11 @@ class OnBoardingRobot(private val rule: AndroidComposeTestRule<ActivityScenarioR
     fun clickGetStartedButton() {
         rule.onNodeWithText("Get Started")
             .performClick()
+    }
+
+    @OptIn(ExperimentalTestApi::class)
+    fun waitUntilNextScreenIsVisible() {
+        rule.waitUntilExactlyOneExists(hasText("Journal"))
     }
 
 }

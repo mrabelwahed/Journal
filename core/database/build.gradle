@@ -44,7 +44,7 @@ dependencies {
     kapt(libs.hilt.compiler)
     //Room
     def room_version = "2.5.2"
-    implementation "androidx.room:room-runtime:$room_version"
+    api "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
-    implementation "androidx.room:room-ktx:2.5.2"
+    api "androidx.room:room-ktx:2.5.2"
 }
