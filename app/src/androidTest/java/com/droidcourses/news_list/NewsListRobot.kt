@@ -16,7 +16,7 @@ import com.droidcourses.newsapp.presentation.activity.MainActivity
 
 class NewsListRobot(private val rule: AndroidComposeTestRule<ActivityScenarioRule<MainActivity>, MainActivity>){
     fun waitUntilArticleListLoaded() {
-        rule.waitUntil {
+        rule.waitUntil(2000) {
             rule.onAllNodesWithContentDescription(
                 "Article",
                 substring = true,

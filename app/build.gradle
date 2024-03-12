@@ -82,5 +82,6 @@ dependencies {
     debugImplementation(libs.bundles.compose.debug)
     androidTestImplementation(libs.mockwebserver)
     androidTestImplementation(libs.okhttp)
+    androidTestImplementation(libs.androidx.navigation.testing)
 
 }

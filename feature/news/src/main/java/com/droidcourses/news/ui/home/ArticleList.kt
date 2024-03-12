@@ -30,7 +30,7 @@ fun ArticleList(
     val handlePagingResult = handlePagingResult(articles)
     if (handlePagingResult) {
         LazyColumn(
-            modifier = modifier
+            modifier = modifier.semantics { contentDescription = "Article List" }
                 .fillMaxSize()
                 .padding(mediumSpacing),
             verticalArrangement = Arrangement.spacedBy(mediumSpacing),

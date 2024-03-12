@@ -1,5 +1,6 @@
 [versions]
 min-sdk-version = "24"
+navigationTesting = "2.7.7"
 okHttp = "4.12.0"
 target-sdk-version = "34"
 gradle-plugin-version = "8.0.2"
@@ -30,6 +31,7 @@ splash = "1.0.1"
 androidx-ktx = { module = "androidx.core:core-ktx", version.ref = "androidx-core-ktx-version" }
 androidx-lifecycle-runtime = { module = "androidx.lifecycle:lifecycle-runtime-ktx", version.ref = "androidx-lifecycle-version" }
 
+androidx-navigation-testing = { module = "androidx.navigation:navigation-testing", version.ref = "navigationTesting" }
 compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose-bom-version" }
 compose-activity = { module = "androidx.activity:activity-compose", version.ref = "compose-activity-version" }
 compose-ui = { module = "androidx.compose.ui:ui" }

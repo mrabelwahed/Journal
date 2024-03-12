@@ -2,9 +2,11 @@ package com.droidcourses.news_list
 
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.test.ExperimentalTestApi
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.assertIsDisplayed
+import androidx.compose.ui.test.hasContentDescription
 import androidx.compose.ui.test.hasTestTag
 import androidx.compose.ui.test.isRoot
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
@@ -14,8 +16,12 @@ import androidx.compose.ui.test.onChildren
 import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithTag
+import androidx.compose.ui.test.onNodeWithText
+import androidx.compose.ui.test.performClick
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.compose.ComposeNavigator
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.testing.TestNavHostController
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.IdlingRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -57,7 +63,8 @@ import javax.inject.Inject
 @RunWith(AndroidJUnit4::class)
 @HiltAndroidTest
 class NewsListTest : BaseTest(){
-
+    lateinit var navController: TestNavHostController
+    @OptIn(ExperimentalTestApi::class)
     @Test
     fun articleListShouldBeDisplayedWhenLaunchScreen() {
 
@@ -67,8 +74,34 @@ class NewsListTest : BaseTest(){
         }
 
       launchNewsListScreen (composeRule) {
-          waitUntilArticleListLoaded()
+//          waitUntilArticleListLoaded()
+          composeRule.mainClock.autoAdvance = true // default
+          composeRule.waitForIdle()
+          composeRule.waitUntilAtLeastOneExists(hasContentDescription("Article List"))
       }
+    }
+
+    @OptIn(ExperimentalTestApi::class)
+    @Test
+    fun articleDetailsShouldBeOpenedWhenClickOnArticleListItem() {
+        mockWebServer.dispatcher = SuccessDispatcher()
+        composeRule.activity.setContent {
+            navController = TestNavHostController(LocalContext.current)
+            navController.navigatorProvider.addNavigator(ComposeNavigator())
+            MainScreen(startDestination = HOME_ROUTE, navController = navController )
+        }
+
+        launchNewsListScreen (composeRule) {
+        composeRule.waitUntilAtLeastOneExists(hasContentDescription("Article List"))
+        composeRule.onNodeWithContentDescription("Article List" , useUnmergedTree = false)
+                .onChildren()
+                .onFirst()
+                .performClick()
+          val route =  navController.currentBackStackEntry?.destination?.route
+            assertEquals(route,"article_details_screen")
+        }
+       composeRule.onNodeWithText("Ministers call for defence spending of 2.5% of GDP")
+           .assertIsDisplayed()
 
     }
 

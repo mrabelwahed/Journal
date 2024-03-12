@@ -5,10 +5,15 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalConfiguration
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
+import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.testing.TestNavHostController
 import com.droidcourses.designsystem.NewsAppTheme
 import com.droidcourses.newsapp.presentation.activity.MainActivity
 import com.droidcourses.newsapp.presentation.activity.MainScreen
@@ -30,11 +35,13 @@ open class BaseTest {
 
      val mockWebServer = MockWebServer()
     lateinit var viewModel: MainViewModel
+
     @Before
     fun setup() {
         hiltRule.inject()
         mockWebServer.start(8080)
         viewModel = composeRule.activity.viewModels<MainViewModel>().value
+
     }
 
     @After
