@@ -47,6 +47,7 @@ import kotlinx.coroutines.test.runBlockingTestOnTestScope
 import kotlinx.coroutines.test.runTest
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
+import okhttp3.internal.wait
 import okhttp3.mockwebserver.Dispatcher
 import okhttp3.mockwebserver.MockResponse
 import okhttp3.mockwebserver.MockWebServer
@@ -63,8 +64,7 @@ import javax.inject.Inject
 @RunWith(AndroidJUnit4::class)
 @HiltAndroidTest
 class NewsListTest : BaseTest(){
-    lateinit var navController: TestNavHostController
-    @OptIn(ExperimentalTestApi::class)
+    private lateinit var navController: TestNavHostController
     @Test
     fun articleListShouldBeDisplayedWhenLaunchScreen() {
 
@@ -74,10 +74,8 @@ class NewsListTest : BaseTest(){
         }
 
       launchNewsListScreen (composeRule) {
-//          waitUntilArticleListLoaded()
-          composeRule.mainClock.autoAdvance = true // default
-          composeRule.waitForIdle()
-          composeRule.waitUntilAtLeastOneExists(hasContentDescription("Article List"))
+          advanceClockUntilIdle()
+          waitUntilArticleListLoaded()
       }
     }
 
@@ -92,17 +90,12 @@ class NewsListTest : BaseTest(){
         }
 
         launchNewsListScreen (composeRule) {
-        composeRule.waitUntilAtLeastOneExists(hasContentDescription("Article List"))
-        composeRule.onNodeWithContentDescription("Article List" , useUnmergedTree = false)
-                .onChildren()
-                .onFirst()
-                .performClick()
-          val route =  navController.currentBackStackEntry?.destination?.route
+            waitUntilArticleListLoaded()
+            clickOnTheFirstArticleInTheList()
+            val route =  navController.currentBackStackEntry?.destination?.route
             assertEquals(route,"article_details_screen")
+            firstArticleListTitleIsDisplayed()
         }
-       composeRule.onNodeWithText("Ministers call for defence spending of 2.5% of GDP")
-           .assertIsDisplayed()
-
     }
 
 }
