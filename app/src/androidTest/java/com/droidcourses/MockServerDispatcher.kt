@@ -43,12 +43,6 @@ class SuccessDispatcher(private val context: Context = getInstrumentation().targ
                throw RuntimeException("Journal exception ${e.message}")
            }
 
-//            try {
-//                val inputStream = context.assets.open("network_files/$assetPath")
-//                return inputStreamToString(inputStream, "UTF-8")
-//            } catch (e: IOException) {
-//                throw RuntimeException(e)
-//            }
         }
 
         private fun inputStreamToString(inputStream: InputStream, charsetName: String): String {

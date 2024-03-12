@@ -59,7 +59,7 @@ Multi-module Android app built with Jetpack Compose and the latest android libra
   - common for shared logic and utils
 
 # InProgress ......
- - Implement UI Tests using Robot pattern and other tools
+ - Implement UI Tests using Robot pattern and Mock Http Server
 
 # Support Me
 https://www.buymeacoffee.com/ramadan
