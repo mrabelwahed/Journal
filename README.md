@@ -4,6 +4,8 @@ Multi-module Android app built with Jetpack Compose and the latest android libra
 # Modularization Style: 
 - Hybrid (By layer and By Feature)
 
+# Show Your Support by giving a star ⭐⭐⭐⭐⭐⭐⭐⭐
+
 # Preview 
 <p float="left">
 <img width="30%"  alt="Screenshot 2023-08-23 at 4 11 00 PM" src="https://github.com/mrabelwahed/NewsApp/blob/master/screenshots/1.png">
