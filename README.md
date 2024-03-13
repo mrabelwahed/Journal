@@ -58,6 +58,13 @@ Multi-module Android app built with Jetpack Compose and the latest android libra
   - network for remote source
   - common for shared logic and utils
 
+# UI tests
+- you can run EndToEndTest Suite to run all user scenarios , all ui test under androidTest in app module
+- current Ui tests
+  - NewsList
+  - NewsSearch
+  - OnBoarding
+
 # InProgress ......
  - Implement UI Tests using Robot pattern and Mock Http Server
 
