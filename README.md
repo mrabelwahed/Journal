@@ -3,7 +3,7 @@ Multi-module Android app built with Jetpack Compose and the latest android libra
 
 # Modularization Style: 
 - Hybrid (By layer and By Feature)
- - - Show Your Support by giving a star ⭐⭐⭐⭐⭐⭐⭐⭐
+ -  ⭐⭐⭐⭐⭐⭐⭐⭐ Show Your Support by giving a star ⭐⭐⭐⭐⭐⭐⭐⭐
 
 # Preview 
 <p float="left">
@@ -67,7 +67,7 @@ Multi-module Android app built with Jetpack Compose and the latest android libra
   - OnBoarding
 
 # InProgress ......
- - Implement UI Tests using Robot pattern and Mock Http Server
+ - Implement UI Tests using Robot pattern,Compose Navigation test Lib and  Mock Http Server
 
 # Support Me
 https://www.buymeacoffee.com/ramadan
