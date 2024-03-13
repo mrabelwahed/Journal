@@ -3,8 +3,7 @@ Multi-module Android app built with Jetpack Compose and the latest android libra
 
 # Modularization Style: 
 - Hybrid (By layer and By Feature)
-
-# Show Your Support by giving a star ⭐⭐⭐⭐⭐⭐⭐⭐
+ - - Show Your Support by giving a star ⭐⭐⭐⭐⭐⭐⭐⭐
 
 # Preview 
 <p float="left">
