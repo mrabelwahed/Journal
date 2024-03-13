@@ -41,7 +41,6 @@ open class BaseTest {
         hiltRule.inject()
         mockWebServer.start(8080)
         viewModel = composeRule.activity.viewModels<MainViewModel>().value
-
     }
 
     @After

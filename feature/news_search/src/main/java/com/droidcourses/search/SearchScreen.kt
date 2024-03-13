@@ -7,6 +7,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.collectAsLazyPagingItems
@@ -24,7 +26,7 @@ fun SearchScreen(
 
     Column (modifier = Modifier.fillMaxSize()) {
         SearchBar(
-            modifier = Modifier
+            modifier = Modifier.semantics { contentDescription = "Search Bar" }
                 .fillMaxWidth()
                 .padding(top = mediumSpacing, start = mediumSpacing, end = mediumSpacing)
                 .statusBarsPadding(),

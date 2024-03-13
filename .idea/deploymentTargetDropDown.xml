@@ -2,7 +2,13 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
+      <entry key="EndToEndTesting">
+        <State />
+      </entry>
       <entry key="NewsListTest">
+        <State />
+      </entry>
+      <entry key="NewsSearchTest">
         <State />
       </entry>
       <entry key="OnBoardingTest">
@@ -12,9 +18,6 @@
         <State />
       </entry>
       <entry key="designsystem">
-        <State />
-      </entry>
-      <entry key="loadNewsListShouldBeVisible()">
         <State />
       </entry>
       <entry key="shouldShowEmptyWhenLaunchSearch()">

@@ -16,6 +16,8 @@ import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithTag
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performImeAction
+import androidx.compose.ui.test.performTextInput
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import com.droidcourses.newsapp.R
 import com.droidcourses.newsapp.presentation.activity.MainActivity
@@ -26,6 +28,22 @@ class NewsSearchRobot(private val rule: AndroidComposeTestRule<ActivityScenarioR
     infix fun verify(block: NewsSearchVerification.() -> Unit): NewsSearchVerification {
         return NewsSearchVerification(rule).apply (block)
     }
+
+    fun enterSearchKeyword() {
+        rule.onNodeWithContentDescription("Search Bar")
+            .performTextInput("sport")
+    }
+
+    fun performSearchAction() {
+        rule.onNodeWithContentDescription("Search Bar")
+            .performImeAction()
+    }
+
+    fun advanceClockUntilIdle() {
+        rule.mainClock.autoAdvance = true
+        rule.waitForIdle()
+    }
+
 
 
 }
@@ -42,6 +60,11 @@ class NewsSearchVerification(private val rule: AndroidComposeTestRule<ActivitySc
 
     private fun hasDrawable(@DrawableRes id: Int): SemanticsMatcher {
        return SemanticsMatcher.expectValue(drawableID, id)
+    }
+
+    @OptIn(ExperimentalTestApi::class)
+    fun waitUntilArticleListLoaded() {
+        rule.waitUntilAtLeastOneExists(hasContentDescription("Article List"))
     }
 }
 fun launchNewsSearchScreen(

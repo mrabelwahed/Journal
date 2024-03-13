@@ -30,7 +30,8 @@ fun ArticleList(
         LazyColumn(
             modifier = modifier
                 .fillMaxSize()
-                .padding(mediumSpacing),
+                .padding(mediumSpacing)
+                .semantics { contentDescription = "Article List" },
             verticalArrangement = Arrangement.spacedBy(mediumSpacing),
             contentPadding = PaddingValues(all = smallSpacing)
         ) {
