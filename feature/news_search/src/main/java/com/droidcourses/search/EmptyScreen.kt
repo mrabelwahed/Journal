@@ -23,12 +23,17 @@ import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color.Companion.DarkGray
 import androidx.compose.ui.graphics.Color.Companion.LightGray
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.semantics.SemanticsPropertyKey
+import androidx.compose.ui.semantics.SemanticsPropertyReceiver
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import com.droidcourses.designsystem.R as designR
 import kotlinx.coroutines.CancellationException
 import java.util.concurrent.TimeoutException
 
+val drawableID =  SemanticsPropertyKey<Int>("DrawableResID")
+var SemanticsPropertyReceiver.drawableId by drawableID
 @Composable
 fun EmptyScreen(error: LoadState.Error? = null, fromSearch: Boolean= false) {
    var message by remember {
@@ -68,6 +73,7 @@ fun EmptyScreen(error: LoadState.Error? = null, fromSearch: Boolean= false) {
 
 @Composable
 fun EmptyContent(alphaAnim: Float, message: String, iconId: Int) {
+
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -80,6 +86,7 @@ fun EmptyContent(alphaAnim: Float, message: String, iconId: Int) {
             modifier = Modifier
                 .size(120.dp)
                 .alpha(alphaAnim)
+                .semantics { drawableId  = iconId}
         )
         Text(
             modifier = Modifier

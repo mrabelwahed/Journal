@@ -17,6 +17,9 @@
       <entry key="loadNewsListShouldBeVisible()">
         <State />
       </entry>
+      <entry key="shouldShowEmptyWhenLaunchSearch()">
+        <State />
+      </entry>
       <entry key="uicomponents">
         <State />
       </entry>
